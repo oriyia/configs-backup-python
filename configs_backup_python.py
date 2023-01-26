@@ -1,5 +1,11 @@
+#!/usr/bin/env python3
+
+# backup всех важных конфигов системы
+
 import os
 import datetime
+import shutil
+
 
 def get_current_date_time():
     separator = "-----------------------"
@@ -10,41 +16,85 @@ def get_current_date_time():
 
 
 list_configs = {
-    'zsh': '/home/oriyia/.zshrc',
+    "zsh": "/home/oriyia/.zshrc",
+    "alacritty": "/home/oriyia/.config/alacritty/",
+    "i3": "/home/oriyia/.config/i3/config",
+    "betterlockscreen": "/home/oriyia/.config/betterlockscreenrc",
+    "nvim": "/home/oriyia/.config/nvim/",
+    "bash_history": "/home/oriyia/.bash_history",
+    "bashrc": "/home/oriyia/.bashrc",
+    "bash_profile": "/home/oriyia/.profile",
+    "python_history": "/home/oriyia/.python_history",
+    "xinitrc": "/home/oriyia/.xinitrc",
+    "xmodmap": "/home/oriyia/.Xmodmap",
+    "xprofile": "/home/oriyia/.xprofile",
+    "xresources": "/home/oriyia/.Xresources",
+    "polybar": "/home/oriyia/.config/polybar/",
+    "ranger": "/home/oriyia/.config/ranger/",
+    "pygments": "/usr/lib/python3/dist-packages/pygments/styles/my.py",
+    "zathura": "/home/oriyia/.config/zathura/zathurarc",
+    "ppa": "/etc/apt/sources.list",
+    "rofi": "/home/oriyia/.config/rofi/config.rasi",
+    "rofi_theme": "/home/oriyia/.local/share/rofi/themes/rofi_mytheme_onedark.rasi",
+    "zsh_history": "/home/oriyia/.zsh_history",
+    "zshrc": "/home/oriyia/.zshrc",
+    "starship": "/home/oriyia/.config/starship.toml",
+    "lsd": "/home/oriyia/.config/lsd/config.yaml",
+    "lsd_themes": "/home/oriyia/.config/lsd/themes/lsd_theme.yaml",
+    "vivid": "/home/oriyia/.config/vivid/vivid_mytheme_onedark.yml",
+    "glow": "/home/oriyia/.config/glow/glow.yml",
+    "glamour": "/home/oriyia/.config/glow/myconf.json",
+    "ipython_config": "/home/oriyia/.ipython/profile_default/ipython_config.py",
 }
 
-
-def create_directory():
-    os.mkdir('saved_configs')
-
-# mkdir "${PWD}/saved_configs/" &> /dev/null
-# target="${PWD}/saved_configs/"
-#
-# copying_files()
-# {
-#     for key in "${!list_directories[@]}"
-#     do
-#         if [[ -d ${list_directories[$key]} ]]
-#         then
-#             if cp -aT "${list_directories[$key]}" "${target}${key}"
-#             then
-#                 echo "+++++ ${key}" >> results.txt
-#             else
-#                 echo "----- ${key}" >> results.txt
-#             fi
-#         else
-#             mkdir "${target}${key}/" &> /dev/null
-#             if cp -a "${list_directories[$key]}" "${target}${key}/"
-#             then
-#                 echo "+++++++ ${key}" >> results.txt
-#             else
-#                 echo "---------- ${key}" >> results.txt
-#             fi
-#         fi
-#     done
-# }
-#
-# copying_files
-# echo -e "\n${itog}" >> results.txt
+log_file = open("results.txt", "a")
 
 
+def create_directory(target_path):
+    try:
+        os.mkdir(target_path)
+    except FileExistsError:
+        pass
+    except BaseException:
+        write_info_log_file('Упс при создании директории, что-то пошло не так!')
+
+
+def write_info_log_file(log_message):
+    log_message = log_message + "\n"
+    log_file.write(log_message)
+
+
+def backup_files(key, path_object):
+    target_path = os.environ["PWD"] + "/saved_configs/" + key + "/"
+    create_directory(target_path)
+    if os.path.isdir(path_object):
+        try:
+            log_message = '+++++ ' + key
+            shutil.copytree(path_object, target_path,
+                            copy_function=shutil.copy2, dirs_exist_ok=True)
+            write_info_log_file(log_message)
+        except BaseException:
+            log_message = '---- ' + key
+            write_info_log_file(log_message)
+    else:
+        try:
+            log_message = '+++++ ' + key
+            shutil.copy2(path_object, target_path)
+            write_info_log_file(log_message)
+        except BaseException:
+            log_message = '---------- ' + key
+            write_info_log_file(log_message)
+
+
+current_date = get_current_date_time()
+write_info_log_file(current_date)
+
+configs_directory = "saved_configs"
+create_directory(configs_directory)
+
+
+for key, value in list_configs.items():
+    backup_files(key, value)
+
+
+log_file.close()
