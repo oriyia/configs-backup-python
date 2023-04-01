@@ -45,18 +45,20 @@ list_configs = {
     "glow": "/home/oriyia/.config/glow/glow.yml",
     "glamour": "/home/oriyia/.config/glow/myconf.json",
     "ipython_config": "/home/oriyia/.ipython/profile_default/ipython_config.py",
+    "autojump": "/home/oriyia/.local/share/autojump/autojump.txt",
+    "bat_config": "/home/oriyia/.config/bat/config",
+    "bat_theme": "/home/oriyia/.config/bat/themes/sublime-snazzy/NewBatThemeLight.tmTheme",
+    "systemd_yandex_disk": "/etc/systemd/system/yandex-disk.service",
+    "delta": "/home/oriyia/.config/themes.gitconfig",
+    "lazygit": "/home/oriyia/.config/lazygit/config.yml"
 }
 
 log_file = open("results.txt", "a")
 
 
 def create_directory(target_path):
-    try:
+    if not os.path.exists(target_path):
         os.mkdir(target_path)
-    except FileExistsError:
-        pass
-    except BaseException:
-        write_info_log_file('Упс при создании директории, что-то пошло не так!')
 
 
 def write_info_log_file(log_message):
