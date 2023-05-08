@@ -42,15 +42,19 @@ list_configs = {
     "lsd": "/home/oriyia/.config/lsd/config.yaml",
     "lsd_themes": "/home/oriyia/.config/lsd/themes/lsd_theme.yaml",
     "vivid": "/home/oriyia/.config/vivid/vivid_mytheme_onedark.yml",
-    "glow": "/home/oriyia/.config/glow/glow.yml",
+    "glow": "/home/oriyia/.config/glow/",
     "glamour": "/home/oriyia/.config/glow/myconf.json",
     "ipython_config": "/home/oriyia/.ipython/profile_default/ipython_config.py",
     "autojump": "/home/oriyia/.local/share/autojump/autojump.txt",
     "bat_config": "/home/oriyia/.config/bat/config",
     "bat_theme": "/home/oriyia/.config/bat/themes/sublime-snazzy/NewBatThemeLight.tmTheme",
     "systemd_yandex_disk": "/etc/systemd/system/yandex-disk.service",
-    "delta": "/home/oriyia/.config/themes.gitconfig",
-    "lazygit": "/home/oriyia/.config/lazygit/config.yml"
+    "yandex_config": "/home/oriyia/.config/yandex-disk/config.cfg",
+    "delta_themes": "/home/oriyia/.config/themes.gitconfig",
+    "lazygit": "/home/oriyia/.config/lazygit/config.yml",
+    "spotifyd": "/home/oriyia/.config/spotifyd",
+    "gitconfig": "/home/oriyia/.gitconfig",
+    "tmux": "/home/oriyia/.tmux.conf.local",
 }
 
 log_file = open("results.txt", "a")
