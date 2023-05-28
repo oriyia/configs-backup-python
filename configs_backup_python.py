@@ -51,7 +51,6 @@ list_configs = {
     "systemd_yandex_disk": "/etc/systemd/system/yandex-disk.service",
     "yandex_config": "/home/oriyia/.config/yandex-disk/config.cfg",
     "delta_themes": "/home/oriyia/.config/themes.gitconfig",
-    "lazygit": "/home/oriyia/.config/lazygit/config.yml",
     "spotifyd": "/home/oriyia/.config/spotifyd",
     "gitconfig": "/home/oriyia/.gitconfig",
     "tmux": "/home/oriyia/.tmux.conf.local",
