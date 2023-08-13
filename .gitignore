@@ -1,4 +1,4 @@
 results.txt
 saved_configs/
-./__pycache__
-./debug.log
+__pycache__
+debug.log
