@@ -15,6 +15,8 @@ from config import config
 
 logger.add("debug.log")
 
+list_backup_files = str(config["list_backup_files"])
+
 
 def create_directory_save(path_save: Path) -> Path:
     current_date = datetime.datetime.now()
@@ -42,7 +44,7 @@ def add_new_file_to_list(new_file: str) -> int:
         click.echo(f"Такого файла не существует: {str(full_path_new_file)}")
         return 1
     else:
-        with open("backup_files.json") as file:
+        with open(list_backup_files) as file:
             list_object = json.load(file)
         while True:
             name_directory = input("Имя директории: ")
@@ -50,7 +52,7 @@ def add_new_file_to_list(new_file: str) -> int:
                 click.echo(f"Директория '{name_directory}' уже есть. Укажите другое.")
                 continue
             list_object[str(name_new_file)] = str(full_path_new_file)
-            with open("backup_files.json", "w") as json_file:
+            with open(list_backup_files, "w") as json_file:
                 json.dump(list_object, json_file)
             click.echo(f"Новая запись: '{name_directory}':'{str(full_path_new_file)}'")
             return 0
@@ -102,7 +104,7 @@ def backup_files(new_file):
         if result != 0:
             return
     full_name_created_dir = create_directory_save(config["path_save"])
-    with open("backup_files.json") as file:
+    with open(list_backup_files) as file:
         conservation_objects = json.load(file)
     copy_files(conservation_objects, full_name_created_dir)
 
