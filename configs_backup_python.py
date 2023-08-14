@@ -92,6 +92,8 @@ def dictionary_parsing(files: dict, full_name_path_dir: Path):
                     copy_object(source, str(target))
                 elif type(value_list) == dict:
                     dictionary_parsing(value_list, new_current_directory)
+        elif type(value_dict) == dict:
+            dictionary_parsing(value_dict, new_current_directory)
 
 
 @click.command()
