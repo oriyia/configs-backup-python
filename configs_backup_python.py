@@ -59,37 +59,39 @@ def add_new_file_to_list(new_file: str) -> int:
 
 
 @logger.catch
-def copy_files(files: dict, full_name_path_dir: Path):
+def copy_object(source: str, target: str):
+    try:
+        if Path(source).is_dir():
+            shutil.copytree(source, str(target))
+        else:
+            shutil.copy2(source, str(target))
+    except FileNotFoundError as FN:
+        logger.debug(f"Не удалось скопировать: {source}")
+        logger.debug(f"Error: {FN}")
+    else:
+        logger.info(f"(+) {source}")
+
+
+@logger.catch
+def dictionary_parsing(files: dict, full_name_path_dir: Path):
     for key, value_dict in files.items():
         current_directory = Path(full_name_path_dir)
         new_current_directory = Path(current_directory, key)
         new_current_directory.mkdir()
         if type(value_dict) == str:
-            name_file = Path(value_dict).name
+            source = value_dict
+            name_file = Path(source).name
             target = new_current_directory / name_file
-            try:
-                if Path(value_dict).is_dir():
-                    shutil.copytree(value_dict, str(target))
-                else:
-                    shutil.copy2(value_dict, str(target))
-            except FileNotFoundError as FN:
-                logger.debug(f"Файл не удалось скопировать: {value_dict}")
-                logger.debug(f"Error: {FN}")
+            copy_object(source, str(target))
         elif type(value_dict) == list:
             for value_list in value_dict:
                 if type(value_list) == str:
-                    name_file = Path(value_list).name
+                    source = value_list
+                    name_file = Path(source).name
                     target = new_current_directory / name_file
-                    try:
-                        if Path(value_list).is_dir():
-                            shutil.copytree(value_list, str(target))
-                        else:
-                            shutil.copy2(value_list, target)
-                    except FileNotFoundError as FN:
-                        logger.debug(f"Файл не удалось скопировать: {value_dict}")
-                        logger.debug(f"Error: {FN}")
+                    copy_object(source, str(target))
                 elif type(value_list) == dict:
-                    copy_files(value_list, new_current_directory)
+                    dictionary_parsing(value_list, new_current_directory)
 
 
 @click.command()
@@ -106,7 +108,7 @@ def backup_files(new_file):
     full_name_created_dir = create_directory_save(config["path_save"])
     with open(list_backup_files) as file:
         conservation_objects = json.load(file)
-    copy_files(conservation_objects, full_name_created_dir)
+    dictionary_parsing(conservation_objects, full_name_created_dir)
 
 
 if __name__ == "__main__":
