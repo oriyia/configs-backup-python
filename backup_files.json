@@ -1,1 +1,175 @@
-{"sh": [{"zsh": ["/home/oriyia/.zshrc", "/home/oriyia/.zsh_history"]}, {"bash": ["/home/oriyia/.bash_history", "/home/oriyia/.bashrc"]}], "X11": ["/home/oriyia/.profile", "/home/oriyia/.xinitrc", "/home/oriyia/.Xmodmap", "/home/oriyia/.xprofile", "/home/oriyia/.Xresources"], "desktop": [{"i3wm": ["/home/oriyia/.config/i3/config", "/usr/local/bin/i3-service"]}, {"systemd": [{"settings": ["/etc/X11/xinit/xinitrc.d/50-systemd-user.sh"]}, {"betterlockscreen": ["/etc/systemd/system/betterlockscreen@.service"]}, {"syncthing": "/etc/systemd/user/syncthing.service"}, {"script_copy_abstract_pdf": ["/etc/systemd/user/copy-abstract-pdf.service"]}, {"daily_tasks": ["/etc/systemd/user/daily-tasks.timer", "/etc/systemd/user/daily-tasks.target"]}, {"xidlehook": "/etc/systemd/user/xidlehook.service"}, {"script_backup": ["/etc/systemd/user/autobackup.service"]}, {"copy_database": "/etc/systemd/user/copy-database.service"}, {"i3": ["/etc/systemd/user/i3.service", "/usr/share/xsessions/i3-systemd.desktop"]}, {"telegram": ["/etc/systemd/user/telegram.service"]}]},{"betterlockscreenrc": [ "/home/oriyia/.config/betterlockscreen/betterlockscreenrc"]}, "/home/oriyia/.config/polybar/", {"ranger": ["/home/oriyia/.config/ranger/commands.py", "/home/oriyia/.config/ranger/rc.conf", "/home/oriyia/.config/ranger/rifle.conf", "/home/oriyia/.config/ranger/scope.sh", "/home/oriyia/.config/ranger/colorschemes/ranger_mytheme_onedark.py"]}, {"zathura": ["/home/oriyia/.config/zathura/zathurarc"]}, {"rofi": ["/home/oriyia/.config/rofi/config.rasi", "/home/oriyia/.local/share/rofi/themes/rofi_mytheme_onedark.rasi"]}, {"spotifyd": ["/home/oriyia/.config/spotifyd"]}], "terminal": ["/home/oriyia/.config/alacritty/", "/home/oriyia/.config/nvim/", {"starship": ["/home/oriyia/.config/starship.toml"]}, {"lsd": ["/home/oriyia/.config/lsd/config.yaml", "/home/oriyia/.config/lsd/themes/lsd_theme.yaml"]}, {"vivid": ["/home/oriyia/.config/vivid/vivid_mytheme_onedark.yml"]}, "/home/oriyia/.config/glow/", {"autojump": ["/home/oriyia/.local/share/autojump/autojump.txt"]}, {"tmux": ["/home/oriyia/.tmux.conf.local"]}, {"bat": ["/home/oriyia/.config/bat/config", "/home/oriyia/.config/bat/themes/NewBatThemeLight.tmTheme"]}, {"delta": ["/home/oriyia/.config/themes.gitconfig"]}], "cloud": [{"yandex_dick": ["/etc/systemd/system/yandex-disk.service", "/home/oriyia/.config/yandex-disk/config.cfg"]}], "python": ["/usr/lib/python3/dist-packages/pygments/styles/my.py", "/home/oriyia/.python_history", "/home/oriyia/.ipython/profile_default/ipython_config.py"], "ppa": "/etc/apt/sources.list", "git": "/home/oriyia/.gitconfig"}
+{
+    "sh": [
+        {
+            "zsh": [
+                "/home/oriyia/.zshrc",
+                "/home/oriyia/.zsh_history"
+            ]
+        },
+        {
+            "bash": [
+                "/home/oriyia/.bash_history",
+                "/home/oriyia/.bashrc"
+            ]
+        }
+    ],
+    "X11": [
+        "/home/oriyia/.profile",
+        "/home/oriyia/.xinitrc",
+        "/home/oriyia/.config/xkb/my_keyboard",
+        "/home/oriyia/.xprofile",
+        "/home/oriyia/.Xresources"
+    ],
+    "desktop": [
+        {
+            "i3wm": [
+                "/home/oriyia/.config/i3/config",
+                "/usr/local/bin/i3-service"
+            ]
+        },
+        {
+            "systemd": [
+                {
+                    "settings": [
+                        "/etc/X11/xinit/xinitrc.d/50-systemd-user.sh"
+                    ]
+                },
+                {
+                    "betterlockscreen": [
+                        "/etc/systemd/system/betterlockscreen@.service"
+                    ]
+                },
+                {
+                    "syncthing": "/etc/systemd/user/syncthing.service"
+                },
+                {
+                    "script_copy_abstract_pdf": [
+                        "/etc/systemd/user/copy-abstract-pdf.service"
+                    ]
+                },
+                {
+                    "daily_tasks": [
+                        "/etc/systemd/user/daily-tasks.timer",
+                        "/etc/systemd/user/daily-tasks.target"
+                    ]
+                },
+                {
+                    "xidlehook": "/etc/systemd/user/xidlehook.service"
+                },
+                {
+                    "script_backup": [
+                        "/etc/systemd/user/autobackup.service"
+                    ]
+                },
+                {
+                    "copy_database": "/etc/systemd/user/copy-database.service"
+                },
+                {
+                    "i3": [
+                        "/etc/systemd/user/i3.service",
+                        "/usr/share/xsessions/i3-systemd.desktop"
+                    ]
+                },
+                {
+                    "telegram": [
+                        "/etc/systemd/user/telegram.service"
+                    ]
+                }
+            ]
+        },
+        {
+            "betterlockscreenrc": [
+                "/home/oriyia/.config/betterlockscreen/betterlockscreenrc"
+            ]
+        },
+        "/home/oriyia/.config/polybar/",
+        {
+            "ranger": [
+                "/home/oriyia/.config/ranger/commands.py",
+                "/home/oriyia/.config/ranger/rc.conf",
+                "/home/oriyia/.config/ranger/rifle.conf",
+                "/home/oriyia/.config/ranger/scope.sh",
+                "/home/oriyia/.config/ranger/colorschemes/ranger_mytheme_onedark.py"
+            ]
+        },
+        {
+            "yazi": [
+                "/home/oriyia/.config/yazi/yazi.toml",
+                "/home/oriyia/.config/yazi/theme.toml",
+                "/home/oriyia/.config/yazi/keymap.toml",
+            ]
+        },
+        {
+            "zathura": [
+                "/home/oriyia/.config/zathura/zathurarc" ]
+        },
+        {
+            "rofi": [
+                "/home/oriyia/.config/rofi/config.rasi",
+                "/home/oriyia/.local/share/rofi/themes/rofi_mytheme_onedark.rasi"
+            ]
+        },
+        {
+            "spotifyd": [
+                "/home/oriyia/.config/spotifyd"
+            ]
+        }
+    ],
+    "terminal": [
+        "/home/oriyia/.config/alacritty/",
+        "/home/oriyia/.config/nvim/",
+        {
+            "starship": [
+                "/home/oriyia/.config/starship.toml"
+            ]
+        },
+        {
+            "lsd": [
+                "/home/oriyia/.config/lsd/config.yaml",
+                "/home/oriyia/.config/lsd/themes/lsd_theme.yaml"
+            ]
+        },
+        {
+            "vivid": [
+                "/home/oriyia/.config/vivid/vivid_mytheme_onedark.yml"
+            ]
+        },
+        "/home/oriyia/.config/glow/",
+        {
+            "autojump": [
+                "/home/oriyia/.local/share/autojump/autojump.txt"
+            ]
+        },
+        {
+            "tmux": [
+                "/home/oriyia/.tmux.conf.local"
+            ]
+        },
+        {
+            "bat": [
+                "/home/oriyia/.config/bat/config",
+                "/home/oriyia/.config/bat/themes/NewBatThemeLight.tmTheme"
+            ]
+        },
+        {
+            "delta": [
+                "/home/oriyia/.config/themes.gitconfig"
+            ]
+        }
+    ],
+    "cloud": [
+        {
+            "yandex_dick": [
+                "/etc/systemd/system/yandex-disk.service",
+                "/home/oriyia/.config/yandex-disk/config.cfg"
+            ]
+        }
+    ],
+    "python": [
+        "/usr/lib/python3/dist-packages/pygments/styles/my.py",
+        "/home/oriyia/.python_history",
+        "/home/oriyia/.ipython/profile_default/ipython_config.py"
+    ],
+    "ppa": "/etc/apt/sources.list",
+    "git": "/home/oriyia/.gitconfig"
+}
