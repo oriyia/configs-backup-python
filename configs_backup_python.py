@@ -104,8 +104,7 @@ def backup_files(new_file):
     """Function save important files"""
     logger.info("НАЧАЛО ОТЛАДКИ")
     if new_file:
-        result = add_new_file_to_list(new_file)
-        if result != 0:
+        if add_new_file_to_list(new_file) != 0:
             return
     full_name_created_dir = create_directory_save(config["path_save"])
     with open(list_backup_files) as file:
